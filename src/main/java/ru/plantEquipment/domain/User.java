@@ -28,7 +28,6 @@ public class User implements UserDetails {
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role")
-    //changed for conv
     @JoinColumn(name="user_id")
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
