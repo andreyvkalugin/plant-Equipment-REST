@@ -13,13 +13,26 @@
             Добавить новое оборудование
         </a>
     <div class="collapse" id="collapseExample">
-        <form method="post" enctype="multipart/form-data">
-            <input type="text" name="text" placeholder="Введите сообщение" />
-            <input type="text" name="tag" placeholder="Тэг">
-            <input type="file" name="file">
-            <input type="hidden" name="_csrf" value="${_csrf.token}" />
-            <button type="submit">Добавить</button>
-        </form>
+            <div class="form-group">
+                <form method="post" enctype="multipart/form-data">
+                            <div class="form-group mt-3">
+                                 <input type="text" class="form-control" name="text" placeholder="Введите сообщение" />
+                            </div>
+                            <div class="form-group">
+                                  <input type="text" class="form-control" name="tag" placeholder="Тэг">
+                            </div>
+                            <div class="form-group">
+                               <div class="custom-file">
+                                   <input type="file" name="file" id="customFile">
+                                   <label class="custom-file-label" for="customFile">Выбирете файл для загр.</label>
+                               </div>
+                            </div>
+                           <input type="hidden" name="_csrf" value="${_csrf.token}" />
+                           <div class="form-group">
+                              <button type="submit" class="btn btn-primary">Добавить</button>
+                           </div>
+                </form>
+            </div>
     </div>
     <#list messages as message>
         <div>
