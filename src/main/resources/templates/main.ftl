@@ -35,16 +35,20 @@
             </div>
     </div>
     <#list messages as message>
-        <div>
-            <b>${message.id}</b>
-            <span>${message.text}</span>
-            <i>${message.tag}</i>
-            <strong>${message.authorName}</strong>
+        <div class="card my-4" style="width: 72rem;">
+            <div class="m-2">
+                <b>${message.id}</b>
+                <span>${message.text}</span>
+                <i>${message.tag}</i>
+            </div>
                 <div>
                     <#if message.filename??>
-                       <img src="/img/${message.filename}">
+                       <img src="/img/${message.filename}" class="card-img-top">
                     </#if>
                 </div>
+            <div class="card-footer text-muted">
+                ${message.authorName}
+            </div>
         </div>
     <#else>
         No message
