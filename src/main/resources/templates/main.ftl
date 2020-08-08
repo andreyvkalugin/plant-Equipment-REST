@@ -1,4 +1,5 @@
 <#import "parts/common.ftl" as c>
+<#import "parts/formToInsertEquipmentProperty.ftl" as l>
 
 <@c.page>
 <div class="form-row">
@@ -15,12 +16,7 @@
     <div class="collapse" id="collapseExample">
             <div class="form-group">
                 <form method="post" enctype="multipart/form-data">
-                            <div class="form-group mt-3">
-                                 <input type="text" class="form-control" name="text" placeholder="Введите сообщение" />
-                            </div>
-                            <div class="form-group">
-                                  <input type="text" class="form-control" name="tag" placeholder="Тэг">
-                            </div>
+                            <@l.insertData />
                             <div class="form-group">
                                <div class="custom-file">
                                    <input type="file" name="file" id="customFile">
@@ -36,11 +32,7 @@
     </div>
     <#list messages as message>
         <div class="card my-4" style="width: 72rem;">
-            <div class="m-2">
-                <b>${message.id}</b>
-                <span>${message.text}</span>
-                <i>${message.tag}</i>
-            </div>
+            <@l.equipmentProperty message />
                 <div>
                     <#if message.filename??>
                        <img src="/img/${message.filename}" class="card-img-top">
