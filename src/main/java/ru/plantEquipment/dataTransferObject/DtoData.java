@@ -1,6 +1,8 @@
 package ru.plantEquipment.dataTransferObject;
 
-public class DtoToTransfer {
+import ru.plantEquipment.domain.Message;
+
+public class DtoData {
     private Long id;
     private String oborudovaiye;
     private String raspologeniye;
@@ -30,14 +32,37 @@ public class DtoToTransfer {
     private String usoPage;
     private String dummy;
     private String dummy2;
-    private InnerDtoData innerDtoData;
 
-    public InnerDtoData getInnerDtoData() {
-        return innerDtoData;
-    }
-
-    public void setInnerDtoData(InnerDtoData innerDtoData) {
-        this.innerDtoData = innerDtoData;
+    public DtoData(Message message) {
+        this.setId(message.getId());
+        this.setOborudovaiye(message.getOborudovaiye());
+        this.setRaspologeniye(message.getRaspologeniye());
+        this.setNomerBloka(message.getNomerBloka());
+        this.setSistemaAvtomatiki(message.getSistemaAvtomatiki());
+        this.setNomerUso(message.getNomerUso());
+        this.setNomerCi(message.getNomerCi());
+        this.setHodZapornoyArmaturi(message.getHodZapornoyArmaturi());
+        this.setModbusSkorost(message.getModbusSkorost());
+        this.setModbusAddress(message.getModbusAddress());
+        this.setModbusNastroyki(message.getModbusNastroyki());
+        this.setMaxTorque(message.getMaxTorque());
+        this.setCloseTorque(message.getCloseTorque());
+        this.setStartOpenTorque(message.getStartOpenTorque());
+        this.setOpenTorque(message.getOpenTorque());
+        this.setStartCloseTorque(message.getStartCloseTorque());
+        this.setZdType(message.getZdType());
+        this.setTimeToSleepMode(message.getTimeToSleepMode());
+        this.setNalichieDiskretCommands(message.getNalichieDiskretCommands());
+        this.setOpenPosition(message.getOpenPosition());
+        this.setClosePosition(message.getClosePosition());
+        this.setHorizontalPologeniye(message.getHorizontalPologeniye());
+        this.setVerticalPologeniye(message.getVerticalPologeniye());
+        this.setStructuralScheme(message.getStructuralScheme());
+        this.setEquipmentShkaf(message.getEquipmentShkaf());
+        this.setPageOnStructuralScheme(message.getPageOnStructuralScheme());
+        this.setUsoPage(message.getUsoPage());
+        this.setDummy(message.getDummy());
+        this.setDummy2(message.getDummy2());
     }
 
     public Long getId() {

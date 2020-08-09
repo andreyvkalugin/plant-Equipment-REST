@@ -1,22 +1,25 @@
 package ru.plantEquipment.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.plantEquipment.dataTransferObject.RestObjectMapper;
 import ru.plantEquipment.domain.Message;
-import ru.plantEquipment.domain.Role;
-import ru.plantEquipment.domain.User;
+import ru.plantEquipment.repos.MessageRepo;
 
 @org.springframework.web.bind.annotation.RestController
 @RequestMapping("/message")
 public class RestController {
+    @Autowired
+    private MessageRepo messageRepo;
 
-    @GetMapping(value = "/test")
+    @GetMapping
     public String restMethod (String name) throws JsonProcessingException {
-        RestObjectMapper result = new RestObjectMapper(null);
+        Iterable<Message> messages = messageRepo.findAll();
+        RestObjectMapper result = new RestObjectMapper(messages);
          return result.resultDtoToTransfer;
     }
 
