@@ -209,7 +209,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <form method="get" action="/delete" class="form-inline">
-                    <input type="text" name="message" class="form-control" value="${message.oborudovaiye}">
+                    <input type="hidden" name="message" class="form-control" value="${message.oborudovaiye}">
                     <button type="submit" class="btn btn-primary ml-2">Удалить запись</button>
                 </form>
             </div>

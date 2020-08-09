@@ -1,14 +1,7 @@
-package ru.plantEquipment.domain;
+package ru.plantEquipment.dataTransferObject;
 
-import javax.persistence.*;
-import java.util.Map;
-
-@Entity
-public class Message {
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+public class DtoToTransfer {
     private Long id;
-
     private String oborudovaiye;
     private String raspologeniye;
     private String nomerBloka;
@@ -37,64 +30,22 @@ public class Message {
     private String usoPage;
     private String dummy;
     private String dummy2;
+    private InnerDtoData innerDtoData;
 
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id")
-    private User author;
-    private String filename;
-    public Message() {
+    public InnerDtoData getInnerDtoData() {
+        return innerDtoData;
     }
 
-    public Message(Map<String, String> map, User author) {
-        this.oborudovaiye = map.get("oborudovaiye");
-        this.raspologeniye = map.get("raspologeniye");
-        this.nomerBloka = map.get("nomerBloka");
-        this.sistemaAvtomatiki = map.get("sistemaAvtomatiki");
-        this.nomerUso = map.get("nomerUso");
-        this.nomerCi = map.get("nomerCi");
-        this.hodZapornoyArmaturi = map.get("hodZapornoyArmaturi");
-        this.modbusSkorost = map.get("modbusSkorost");
-        this.modbusAddress = map.get("modbusAddress");
-        this.modbusNastroyki = map.get("modbusNastroyki");
-        this.maxTorque = map.get("maxTorque");
-        this.closeTorque = map.get("closeTorque");
-        this.startOpenTorque = map.get("startOpenTorque");
-        this.openTorque = map.get("openTorque");
-        this.startCloseTorque = map.get("startCloseTorque");
-        this.zdType = map.get("zdType");
-        this.timeToSleepMode = map.get("timeToSleepMode");
-        this.nalichieDiskretCommands = map.get("nalichieDiskretCommands");
-        this.openPosition = map.get("openPosition");
-        this.closePosition = map.get("closePosition");
-        this.horizontalPologeniye = map.get("horizontalPologeniye");
-        this.verticalPologeniye = map.get("verticalPologeniye");
-        this.structuralScheme = map.get("structuralScheme");
-        this.equipmentShkaf = map.get("equipmentShkaf");
-        this.pageOnStructuralScheme = map.get("pageOnStructuralScheme");
-        this.usoPage = map.get("usoPage");
-        this.dummy = map.get("dummy");
-        this.dummy2 = map.get("dummy2");
-        this.author = author;
+    public void setInnerDtoData(InnerDtoData innerDtoData) {
+        this.innerDtoData = innerDtoData;
     }
-
-    public String getAuthorName(){
-        return author != null ? author.getUsername():"<none>";
-    }
-    public User getAuthor() {return author;}
-
-    public void setAuthor(User author) {this.author = author;}
 
     public Long getId() {
         return id;
     }
 
-    public String getFilename() {
-        return filename;
-    }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getOborudovaiye() {

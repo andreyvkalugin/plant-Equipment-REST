@@ -1,4 +1,4 @@
-package ru.plantEquipment.controller;
+package ru.plantEquipment.dataTransferObject;
 
 public class InnerDtoData {
     private String param1;
