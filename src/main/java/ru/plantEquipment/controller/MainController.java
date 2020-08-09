@@ -6,6 +6,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -32,7 +33,8 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
+    public String main(@RequestParam(required = false, defaultValue = "") String filter,
+                       Model model) {
         Iterable<Message> messages = messageRepo.findAll();
 
         if (filter != null && !filter.isEmpty()) {
@@ -41,8 +43,8 @@ public class MainController {
             messages = messageRepo.findAll();
         }
 
-        model.addAttribute("messages", messages);
-        model.addAttribute("filter", filter);
+            model.addAttribute("messages", messages);
+            model.addAttribute("filter", filter);
 
         return "main";
     }
@@ -79,4 +81,11 @@ public class MainController {
 
         return "main";
     }
-}
+
+    @GetMapping ("/delete")
+    public String deleteEquipment(@RequestParam(required = false, defaultValue = "") String message, Map<String, Object> model) {
+        messageRepo.deleteAll(messageRepo.findByOborudovaiye(message));
+        return "main";
+    }
+
+    }

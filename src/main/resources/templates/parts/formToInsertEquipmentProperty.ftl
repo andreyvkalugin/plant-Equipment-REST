@@ -1,3 +1,5 @@
+<#include "security.ftl">
+
 <#macro insertData>
     <div class="form-group mt-3">
         <input type="text" class="form-control" name="oborudovaiye" placeholder="Введите оборудование" />
@@ -85,35 +87,132 @@
     </div>
 </#macro>
 
-<#macro equipmentProperty message>
-    <div class="m-2">
-        <span>${message.oborudovaiye}</span>
-        <span>${message.raspologeniye}</span>
-        <span>${message.nomerBloka}</span>
-        <span>${message.sistemaAvtomatiki}</span>
-        <span>${message.nomerUso}</span>
-        <span>${message.nomerCi}</span>
-        <span>${message.hodZapornoyArmaturi}</span>
-        <span>${message.modbusSkorost}</span>
-        <span>${message.modbusAddress}</span>
-        <span>${message.modbusNastroyki}</span>
-        <span>${message.maxTorque}</span>
-        <span>${message.closeTorque}</span>
-        <span>${message.startOpenTorque}</span>
-        <span>${message.openTorque}</span>
-        <span>${message.startCloseTorque}</span>
-        <span>${message.zdType}</span>
-        <span>${message.timeToSleepMode}</span>
-        <span>${message.nalichieDiskretCommands}</span>
-        <span>${message.openPosition}</span>
-        <span>${message.closePosition}</span>
-        <span>${message.horizontalPologeniye}</span>
-        <span>${message.verticalPologeniye}</span>
-        <span>${message.structuralScheme}</span>
-        <span>${message.equipmentShkaf}</span>
-        <span>${message.pageOnStructuralScheme}</span>
-        <span>${message.usoPage}</span>
-        <span>${message.dummy}</span>
-        <span>${message.dummy2}</span>
+<#macro eqProp message>
+    <div class="table-responsive-lg">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="h6">#</th>
+            <th scope="col" class="h6">Оборудование</th>
+            <th scope="col" class="h6">Расположение</th>
+            <th scope="col" class="h6">Номер блока</th>
+            <th scope="col" class="h6">Система автомат</th>
+            <th scope="col" class="h6">Номер усо</th>
+            <th scope="col" class="h6">Номер ci</th>
+            <th scope="col" class="h6">Ход запорной арматуры</th>
+            <th scope="col" class="h6">скорость модбас</th>
+            <th scope="col" class="h6">Адрес модбас</th>
+            <th scope="col" class="h6">Настройки модбас</th>
+            <th scope="col" class="h6">максимальный момент</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>${message.oborudovaiye}</td>
+            <td>${message.raspologeniye}</td>
+            <td>${message.nomerBloka}</td>
+            <td>${message.sistemaAvtomatiki}</td>
+            <td>${message.nomerUso}</td>
+            <td>${message.nomerCi}</td>
+            <td>${message.hodZapornoyArmaturi}</td>
+            <td>${message.modbusSkorost}</td>
+            <td>${message.modbusAddress}</td>
+            <td>${message.modbusNastroyki}</td>
+            <td>${message.maxTorque}</td>
+        </tr>
+        </tbody>
+    </table>
     </div>
+</#macro>
+
+<#macro eqPropMiddle message>
+    <div class="table-responsive-lg">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="h6">#</th>
+                <th scope="col" class="h6">Момент на закрытие</th>
+                <th scope="col" class="h6">Стартовый момент на открытие</th>
+                <th scope="col" class="h6">Момент открытия</th>
+                <th scope="col" class="h6">Стартовый момент на закрытие</th>
+                <th scope="col" class="h6">Тип задвижки</th>
+                <th scope="col" class="h6">Время на переход в сон</th>
+                <th scope="col" class="h6">Наличие дискр команд</th>
+                <th scope="col" class="h6">Позиция открытия</th>
+                <th scope="col" class="h6">Позиция закрытия</th>
+                <th scope="col" class="h6">Гориз положение</th>
+                <th scope="col" class="h6">Вертик положение</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">2</th>
+                <td>${message.closeTorque}</td>
+                <td>${message.startOpenTorque}</td>
+                <td>${message.openTorque}</td>
+                <td>${message.startCloseTorque}</td>
+                <td>${message.zdType}</td>
+                <td>${message.timeToSleepMode}</td>
+                <td>${message.nalichieDiskretCommands}</td>
+                <td>${message.openPosition}</td>
+                <td>${message.closePosition}</td>
+                <td>${message.horizontalPologeniye}</td>
+                <td>${message.verticalPologeniye}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</#macro>
+
+<#macro eqPropLast message>
+    <div class="table-responsive-lg">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="h6">#</th>
+                <th scope="col" class="h6">Структурная схема</th>
+                <th scope="col" class="h6">Шкаф оборудования</th>
+                <th scope="col" class="h6">Страница стр-ной схемы</th>
+                <th scope="col" class="h6">Станица ШУ</th>
+                <th scope="col" class="h6">Дополнительная информация</th>
+                <th scope="col" class="h6">Дополнительная информация</th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">3</th>
+                <td>${message.structuralScheme}</td>
+                <td>${message.equipmentShkaf}</td>
+                <td>${message.pageOnStructuralScheme}</td>
+                <td>${message.usoPage}</td>
+                <td>${message.dummy}</td>
+                <td>${message.dummy2}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</#macro>
+
+<#macro deleteProperty message>
+    <#if isAdmin>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <form method="get" action="/delete" class="form-inline">
+                    <input type="text" name="message" class="form-control" value="${message.oborudovaiye}">
+                    <button type="submit" class="btn btn-primary ml-2">Удалить запись</button>
+                </form>
+            </div>
+        </div>
+    </#if>
 </#macro>
