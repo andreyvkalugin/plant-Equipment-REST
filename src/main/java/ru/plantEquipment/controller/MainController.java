@@ -28,7 +28,7 @@ public class MainController {
     private MessageRepo messageRepo;
 
     @GetMapping("/")
-    public String greeting(Map<String, Object> model) {
+    public String greeting() {
         return "greeting";
     }
 
@@ -82,9 +82,9 @@ public class MainController {
         return "main";
     }
 
-    @GetMapping ("/delete")
-    public String deleteEquipment(@RequestParam(required = false, defaultValue = "") String message, Map<String, Object> model) {
-        messageRepo.deleteAll(messageRepo.findByOborudovaiye(message));
+    @PostMapping ("/delete")
+    public String delEquipment(@RequestParam("messageId") Message message, Map<String, Object> model) {
+        messageRepo.delete(message);
         return "main";
     }
 

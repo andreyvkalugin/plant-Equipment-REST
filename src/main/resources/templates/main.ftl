@@ -43,7 +43,7 @@
                         </div>
                     <div class="card-footer text-muted">
                         ${message.authorName}
-                        <@l.deleteProperty message! />
+                        <@l.delProperty message! />
                     </div>
                 </div>
             <#else>

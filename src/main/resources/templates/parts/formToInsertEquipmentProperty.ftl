@@ -204,15 +204,12 @@
     </div>
 </#macro>
 
-<#macro deleteProperty message>
+<#macro delProperty message>
     <#if isAdmin>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <form method="get" action="/delete" class="form-inline">
-                    <input type="hidden" name="message" class="form-control" value="${message.oborudovaiye}">
-                    <button type="submit" class="btn btn-primary ml-2">Удалить запись</button>
-                </form>
-            </div>
-        </div>
+        <form action="/delete" method="post">
+            <input type="hidden" name="messageId" value="${message.id}">
+            <input type="hidden" name="_csrf" value="${_csrf.token}" />
+            <button type="submit" class="btn btn-primary ml-2"> Удалить запись </button>
+        </form>
     </#if>
 </#macro>
